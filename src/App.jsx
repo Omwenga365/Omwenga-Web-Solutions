@@ -1,12 +1,30 @@
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Services from "./components/Services";
+import Testimonials from "./components/Testimonials";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+
 function App() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-center">
-      <h1 className="text-4xl font-bold text-blue-600 mb-4">
-        Omwenga Web Solutions
-      </h1>
-      <p className="text-gray-700 text-lg">
-        TailwindCSS is working perfectly 🎉
-      </p>
+    <div className="bg-gray-50 text-gray-900">
+      {/* Navigation Bar */}
+      <Navbar />
+
+      {/* Hero Section */}
+      <Hero />
+
+      {/* Services Section */}
+      <Services />
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* Contact Section */}
+      <Contact />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
