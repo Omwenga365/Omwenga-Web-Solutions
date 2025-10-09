@@ -5,50 +5,39 @@ export default function Hello() {
   return (
     <section
       id="home"
-      className="relative h-screen flex flex-col items-center justify-center text-white text-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center text-center text-white overflow-hidden"
+      style={{
+        backgroundImage: `url(${heroBg})`,
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
-      {/* Animated background image */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      ></motion.div>
-
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black/60"></div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-3xl px-4">
-        <motion.h1
-          initial={{ opacity: 0, y: -40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl font-extrabold mb-4"
-        >
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="relative z-10 max-w-2xl mx-auto px-4 py-20"
+      >
+        <h1 className="text-5xl md:text-6xl font-bold mb-4">
           Omwenga Web Solutions
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-200 mb-8"
-        >
+        </h1>
+        <p className="text-lg md:text-xl text-gray-200 mb-6">
           We design and develop modern, responsive websites that help your
           business grow online.
-        </motion.p>
-
+        </p>
         <motion.a
+          href="#services"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          href="#services"
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition"
         >
           Explore Our Services
         </motion.a>
-      </div>
+      </motion.div>
     </section>
   );
 }
