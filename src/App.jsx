@@ -1,30 +1,52 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
+import Stats from "./components/Stats";
+import Process from "./components/Process";
 import Testimonials from "./components/Testimonials";
+import Trust from "./components/Trust";
+import LimitedAvailability from "./components/LimitedAvailability";
+import RealResults from "./components/RealResults";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="bg-gray-50 text-gray-900">
-      {/* Navigation Bar */}
+    <div className="font-sans">
+      {/* Navigation */}
       <Navbar />
 
-      {/* Hero Section */}
+      {/* Hero / Intro Section */}
       <Hero />
 
       {/* Services Section */}
       <Services />
 
-      {/* Testimonials Section */}
+      {/* Stats / Key Figures */}
+      <Stats />
+
+      {/* 3-Step Process */}
+      <Process />
+
+      {/* Testimonials */}
       <Testimonials />
 
-      {/* Contact Section */}
+      {/* Trust / Clients */}
+      <Trust />
+
+      {/* Limited Availability / Scarcity */}
+      <LimitedAvailability />
+
+      {/* Real Results / Client Feedback */}
+      <RealResults />
+
+      {/* Contact Form */}
       <Contact />
 
       {/* Footer */}
-      <Footer />
+      <footer className="bg-gray-800 text-white text-center py-6 mt-12">
+        <p>© 2025 Omwenga Web Solutions. Designed with ❤️ using React & TailwindCSS.</p>
+        <p>All rights reserved.</p>
+      </footer>
     </div>
   );
 }
