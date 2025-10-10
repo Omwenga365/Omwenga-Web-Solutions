@@ -1,3 +1,4 @@
+// src/App.jsx
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
@@ -8,6 +9,7 @@ import Trust from "./components/Trust";
 import LimitedAvailability from "./components/LimitedAvailability";
 import RealResults from "./components/RealResults";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -43,10 +45,7 @@ function App() {
       <Contact />
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white text-center py-6 mt-12">
-        <p>© 2025 Omwenga Web Solutions. Designed with ❤️ using React & TailwindCSS.</p>
-        <p>All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

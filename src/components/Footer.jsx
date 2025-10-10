@@ -28,4 +28,8 @@ export default function Footer() {
 
       {/* Bottom copyright */}
       <div className="mt-8 border-t border-gray-700 pt-4 text-center text-gray-500 text-sm">
-        © 2025 Omwenga Web Solutions. All rights reserved
+        © 2025 Omwenga Web Solutions. All rights reserved.
+      </div>
+    </footer>
+  );
+}

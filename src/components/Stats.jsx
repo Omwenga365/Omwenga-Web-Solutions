@@ -1,26 +1,25 @@
 import { motion } from "framer-motion";
 
-export default function Stats() {
-  const stats = [
-    { label: "Websites Delivered", value: "50+" },
-    { label: "Average Delivery", value: "5–10 Days" },
-    { label: "Client Satisfaction", value: "100%" },
-  ];
+const stats = [
+  { number: "50+", label: "Websites Delivered" },
+  { number: "5–10 Days", label: "Average Delivery" },
+  { number: "100%", label: "Client Satisfaction" },
+];
 
+export default function Stats() {
   return (
-    <section className="py-20 bg-blue-50 text-center">
-      <div className="container mx-auto flex flex-col md:flex-row justify-center gap-12">
-        {stats.map((stat, index) => (
+    <section className="py-20 bg-white text-center">
+      <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8">
+        {stats.map((s, i) => (
           <motion.div
-            key={index}
+            key={i}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="bg-white p-8 rounded-xl shadow-md flex-1 max-w-xs"
+            transition={{ duration: 0.8, delay: i * 0.2 }}
+            className="bg-gray-50 p-8 rounded-xl shadow-md"
           >
-            <h3 className="text-3xl font-bold text-blue-700 mb-2">{stat.value}</h3>
-            <p className="text-gray-700">{stat.label}</p>
+            <h3 className="text-4xl font-bold text-blue-600 mb-2">{s.number}</h3>
+            <p className="text-gray-700">{s.label}</p>
           </motion.div>
         ))}
       </div>

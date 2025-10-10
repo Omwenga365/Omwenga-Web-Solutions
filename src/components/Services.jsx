@@ -3,37 +3,49 @@ import { Code2, Palette, Rocket, Wrench } from "lucide-react";
 
 export default function Services() {
   const services = [
-    { icon: <Code2 size={40} />, title: "Web Development", desc: "Modern, fast, and responsive websites built with React and the latest technologies." },
-    { icon: <Palette size={40} />, title: "UI/UX Design", desc: "We design clean, intuitive interfaces that give users a seamless experience." },
-    { icon: <Rocket size={40} />, title: "SEO Optimization", desc: "Boost your visibility and ranking on search engines with our proven SEO strategies." },
-    { icon: <Wrench size={40} />, title: "Website Maintenance", desc: "Keep your site updated, secure, and performing at its best with our support plans." },
+    {
+      title: "Web Development",
+      description: "Modern, fast, and responsive websites built with React and the latest technologies.",
+      icon: <Code2 size={40} className="text-blue-600" />,
+    },
+    {
+      title: "UI/UX Design",
+      description: "We design clean, intuitive interfaces that give users a seamless experience.",
+      icon: <Palette size={40} className="text-green-500" />,
+    },
+    {
+      title: "SEO Optimization",
+      description: "Boost your visibility and ranking on search engines with our proven SEO strategies.",
+      icon: <Rocket size={40} className="text-purple-500" />,
+    },
+    {
+      title: "Website Maintenance",
+      description: "Keep your site updated, secure, and performing at its best with our support plans.",
+      icon: <Wrench size={40} className="text-yellow-500" />,
+    },
   ];
 
   return (
-    <section id="services" className="py-20 bg-white text-center">
+    <section id="services" className="py-20 bg-gray-100 text-center">
       <motion.h2
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="text-4xl font-bold text-gray-800 mb-10"
+        transition={{ duration: 0.8 }}
+        className="text-4xl font-bold text-blue-700 mb-12"
       >
         Our Services
       </motion.h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 px-6 max-w-6xl mx-auto">
+      <div className="container mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-4 px-6">
         {services.map((service, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition"
+            whileHover={{ scale: 1.05 }}
+            className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition flex flex-col items-center text-center"
           >
-            <div className="flex justify-center text-blue-600 mb-4">{service.icon}</div>
+            <div className="mb-4">{service.icon}</div>
             <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-            <p className="text-gray-600 text-sm">{service.desc}</p>
+            <p className="text-gray-600">{service.description}</p>
           </motion.div>
         ))}
       </div>
