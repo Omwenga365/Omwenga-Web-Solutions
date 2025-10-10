@@ -1,14 +1,29 @@
 import { motion } from "framer-motion";
 
-const steps = [
-  { title: "Share Your Vision", desc: "Tell us about your business, goals, and what you need. We'll create a custom plan and quote for you." },
-  { title: "We Build & Design", desc: "Our team creates your website while keeping you updated. You'll see progress and provide feedback along the way." },
-  { title: "Launch & Grow", desc: "Your website goes live and starts attracting customers. We provide training and ongoing support as needed." },
-];
-
 export default function Process() {
+  const steps = [
+    {
+      number: "1",
+      title: "Share Your Vision",
+      description:
+        "Tell us about your business, goals, and what you need. We'll create a custom plan and quote for you.",
+    },
+    {
+      number: "2",
+      title: "We Build & Design",
+      description:
+        "Our team creates your website while keeping you updated. You'll see progress and provide feedback along the way.",
+    },
+    {
+      number: "3",
+      title: "Launch & Grow",
+      description:
+        "Your website goes live and starts attracting customers. We provide training and ongoing support as needed.",
+    },
+  ];
+
   return (
-    <section className="py-20 bg-gray-50 text-center">
+    <section id="process" className="py-20 bg-gray-50 text-center">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -17,17 +32,19 @@ export default function Process() {
       >
         Simple 3-Step Process
       </motion.h2>
-      <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8">
-        {steps.map((s, i) => (
+
+      <div className="container mx-auto grid gap-8 md:grid-cols-3 px-6">
+        {steps.map((step, index) => (
           <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: i * 0.2 }}
-            className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition"
+            key={index}
+            whileHover={{ scale: 1.05 }}
+            className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition flex flex-col items-center"
           >
-            <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
-            <p className="text-gray-600">{s.desc}</p>
+            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold text-xl mb-4">
+              {step.number}
+            </div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">{step.title}</h3>
+            <p className="text-gray-600">{step.description}</p>
           </motion.div>
         ))}
       </div>
