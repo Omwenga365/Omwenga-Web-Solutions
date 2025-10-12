@@ -1,30 +1,74 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Change background when scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "Services", href: "#services" },
+    { name: "Portfolio", href: "#portfolio" },
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-      <div className="container mx-auto flex justify-between items-center p-4">
-        <h1 className="text-2xl font-bold text-blue-600">
-          Omwenga<span className="text-gray-700">Web</span>
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        {/* Logo */}
+        <h1 className="text-2xl md:text-3xl font-extrabold text-blue-600 tracking-tight">
+          Omwenga<span className="text-gray-800">Web</span>
         </h1>
-        <div className="hidden md:flex space-x-6 text-gray-700 font-medium">
-          <a href="#home" className="hover:text-blue-600">Home</a>
-          <a href="#services" className="hover:text-blue-600">Services</a>
-          <a href="#testimonials" className="hover:text-blue-600">Testimonials</a>
-          <a href="#contact" className="hover:text-blue-600">Contact</a>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-gray-700 font-medium hover:text-blue-600 transition-colors duration-300"
+            >
+              {link.name}
+            </a>
+          ))}
         </div>
-        <button onClick={() => setOpen(!open)} className="md:hidden text-gray-700">
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden text-gray-700 focus:outline-none"
+        >
           {open ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
+
+      {/* Mobile Dropdown */}
       {open && (
-        <div className="md:hidden bg-white shadow-lg flex flex-col">
-          <a href="#home" className="px-6 py-2 border-b hover:bg-blue-50">Home</a>
-          <a href="#services" className="px-6 py-2 border-b hover:bg-blue-50">Services</a>
-          <a href="#testimonials" className="px-6 py-2 border-b hover:bg-blue-50">Testimonials</a>
-          <a href="#contact" className="px-6 py-2 hover:bg-blue-50">Contact</a>
+        <div className="md:hidden bg-white border-t border-gray-200 shadow-lg animate-slideDown">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="block px-6 py-3 text-gray-700 font-medium hover:bg-blue-50 hover:text-blue-600 transition"
+            >
+              {link.name}
+            </a>
+          ))}
         </div>
       )}
     </nav>
