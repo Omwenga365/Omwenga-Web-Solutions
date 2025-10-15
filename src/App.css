@@ -54,7 +54,4 @@
   @apply text-gray-600 mb-8 max-w-xl mx-auto;
 }
 
-/* Footer links hover */
-.footer-link {
-  @apply hover:text-blue-500 transition;
-}
+
